@@ -10,7 +10,7 @@ using System.Windows.Forms;
 namespace Notepad
 {
 
-    public partial class Form1 : Form
+    public partial class Note : Form
     {
         /* 布尔变量b用于判断文件是新建的还是从磁盘打开的，
         true表示文件是从磁盘打开的，false表示文件是新建的，默认值为false*/
@@ -18,7 +18,7 @@ namespace Notepad
         /* 布尔变量s用于判断文件件是否被保存，
         true表示文件是已经被保存了，false表示文件未被保存，默认值为true*/
         bool s = true;
-        public Form1()
+        public Note()
         {
             InitializeComponent();
         }

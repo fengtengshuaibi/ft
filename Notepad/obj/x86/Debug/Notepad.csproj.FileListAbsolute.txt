@@ -1,9 +1,11 @@
 C:\Users\腾\Desktop\课设\Notepad\Notepad\bin\Debug\Notepad.exe
 C:\Users\腾\Desktop\课设\Notepad\Notepad\bin\Debug\Notepad.pdb
-C:\Users\腾\Desktop\课设\Notepad\Notepad\obj\x86\Debug\Notepad.frmAbout.resources
 C:\Users\腾\Desktop\课设\Notepad\Notepad\obj\x86\Debug\Notepad.Properties.Resources.resources
 C:\Users\腾\Desktop\课设\Notepad\Notepad\obj\x86\Debug\Notepad.csproj.GenerateResource.Cache
 C:\Users\腾\Desktop\课设\Notepad\Notepad\obj\x86\Debug\Notepad.exe
 C:\Users\腾\Desktop\课设\Notepad\Notepad\obj\x86\Debug\Notepad.pdb
 C:\Users\腾\Desktop\课设\Notepad\Notepad\obj\x86\Debug\Notepad.csprojResolveAssemblyReference.cache
 C:\Users\腾\Desktop\课设\Notepad\Notepad\obj\x86\Debug\Notepad.Note.resources
+C:\Users\腾\Desktop\课设\Notepad\Notepad\obj\x86\Debug\Notepad.login.resources
+C:\Users\腾\Desktop\课设\Notepad\Notepad\obj\x86\Debug\Notepad.Register.resources
+C:\Users\腾\Desktop\课设\Notepad\Notepad\bin\Debug\Notepad.exe.config

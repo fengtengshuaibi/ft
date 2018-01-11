@@ -7,6 +7,8 @@ namespace Notepad
 {
     static class Program
     {
+        public static User user = new User();
+
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -15,7 +17,8 @@ namespace Notepad
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Note());
+            Application.Run(new login());
+            
         }
     }
 }

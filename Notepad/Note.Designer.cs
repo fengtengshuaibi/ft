@@ -36,6 +36,8 @@
             this.tsmiOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSave = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiSaveAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.数据库ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.本地ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiClose = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiUndo = new System.Windows.Forms.ToolStripMenuItem();
@@ -129,11 +131,28 @@
             // 
             // tsmiSaveAs
             // 
+            this.tsmiSaveAs.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.数据库ToolStripMenuItem,
+            this.本地ToolStripMenuItem});
             this.tsmiSaveAs.Name = "tsmiSaveAs";
             this.tsmiSaveAs.ShowShortcutKeys = false;
             this.tsmiSaveAs.Size = new System.Drawing.Size(165, 22);
             this.tsmiSaveAs.Text = "另存为(A)";
             this.tsmiSaveAs.Click += new System.EventHandler(this.tsmiSaveAs_Click);
+            // 
+            // 数据库ToolStripMenuItem
+            // 
+            this.数据库ToolStripMenuItem.Name = "数据库ToolStripMenuItem";
+            this.数据库ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.数据库ToolStripMenuItem.Text = "数据库";
+            this.数据库ToolStripMenuItem.Click += new System.EventHandler(this.数据库ToolStripMenuItem_Click);
+            // 
+            // 本地ToolStripMenuItem
+            // 
+            this.本地ToolStripMenuItem.Name = "本地ToolStripMenuItem";
+            this.本地ToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.本地ToolStripMenuItem.Text = "本地";
+            this.本地ToolStripMenuItem.Click += new System.EventHandler(this.本地ToolStripMenuItem_Click);
             // 
             // tsmiClose
             // 
@@ -221,14 +240,14 @@
             this.tsmiAuto.Checked = true;
             this.tsmiAuto.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tsmiAuto.Name = "tsmiAuto";
-            this.tsmiAuto.Size = new System.Drawing.Size(152, 22);
+            this.tsmiAuto.Size = new System.Drawing.Size(144, 22);
             this.tsmiAuto.Text = "自动换行(W)";
             this.tsmiAuto.Click += new System.EventHandler(this.tsmiAuto_Click);
             // 
             // tsmiFont
             // 
             this.tsmiFont.Name = "tsmiFont";
-            this.tsmiFont.Size = new System.Drawing.Size(152, 22);
+            this.tsmiFont.Size = new System.Drawing.Size(144, 22);
             this.tsmiFont.Text = "字体(F)";
             this.tsmiFont.Click += new System.EventHandler(this.tsmiFont_Click);
             // 
@@ -246,7 +265,7 @@
             this.tsmiToolStrip.Checked = true;
             this.tsmiToolStrip.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tsmiToolStrip.Name = "tsmiToolStrip";
-            this.tsmiToolStrip.Size = new System.Drawing.Size(152, 22);
+            this.tsmiToolStrip.Size = new System.Drawing.Size(112, 22);
             this.tsmiToolStrip.Text = "工具栏";
             this.tsmiToolStrip.Click += new System.EventHandler(this.tsmiToolStrip_Click);
             // 
@@ -255,7 +274,7 @@
             this.tsmiStatusStrip.Checked = true;
             this.tsmiStatusStrip.CheckState = System.Windows.Forms.CheckState.Checked;
             this.tsmiStatusStrip.Name = "tsmiStatusStrip";
-            this.tsmiStatusStrip.Size = new System.Drawing.Size(152, 22);
+            this.tsmiStatusStrip.Size = new System.Drawing.Size(112, 22);
             this.tsmiStatusStrip.Text = "状态栏";
             this.tsmiStatusStrip.Click += new System.EventHandler(this.tsmiStatusStrip_Click);
             // 
@@ -271,9 +290,8 @@
             // tsmiAbout
             // 
             this.tsmiAbout.Name = "tsmiAbout";
-            this.tsmiAbout.Size = new System.Drawing.Size(152, 22);
+            this.tsmiAbout.Size = new System.Drawing.Size(136, 22);
             this.tsmiAbout.Text = "关于记事本";
-            this.tsmiAbout.Click += new System.EventHandler(this.tsmiAbout_Click);
             // 
             // tlsNotepad
             // 
@@ -408,7 +426,7 @@
             this.tssLb12});
             this.stsNotepad.Location = new System.Drawing.Point(0, 391);
             this.stsNotepad.Name = "stsNotepad";
-            this.stsNotepad.Size = new System.Drawing.Size(156, 22);
+            this.stsNotepad.Size = new System.Drawing.Size(141, 22);
             this.stsNotepad.TabIndex = 3;
             this.stsNotepad.Text = "statusStrip1";
             // 
@@ -441,7 +459,7 @@
             this.tmrNotepad.Interval = 1000;
             this.tmrNotepad.Tick += new System.EventHandler(this.tmrNotepad_Tick);
             // 
-            // Form1
+            // Note
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -451,9 +469,10 @@
             this.Controls.Add(this.tlsNotepad);
             this.Controls.Add(this.menuNotepad);
             this.MainMenuStrip = this.menuNotepad;
-            this.Name = "Form1";
+            this.Name = "Note";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "记事本";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Note_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuNotepad.ResumeLayout(false);
             this.menuNotepad.PerformLayout();
@@ -509,6 +528,8 @@
         private System.Windows.Forms.SaveFileDialog sdlgNotepad;
         private System.Windows.Forms.FontDialog fdlgNotepad;
         private System.Windows.Forms.Timer tmrNotepad;
+        private System.Windows.Forms.ToolStripMenuItem 数据库ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 本地ToolStripMenuItem;
     }
 }
 

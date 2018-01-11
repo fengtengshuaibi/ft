@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using Microsoft.VisualBasic;
 
 namespace Notepad
 {
@@ -135,11 +137,7 @@ namespace Notepad
 
         private void tsmiSaveAs_Click(object sender, EventArgs e)
         {
-            if (sdlgNotepad.ShowDialog() == DialogResult.OK)
-            {
-                rtxtNotepad.SaveFile(sdlgNotepad.FileName);
-                s = true;
-            }
+          
         }
 
         private void tsmiClose_Click(object sender, EventArgs e)
@@ -243,11 +241,7 @@ namespace Notepad
 
         }
 
-        private void tsmiAbout_Click(object sender, EventArgs e)
-        {
-            frmAbout ob_FrmAbout = new frmAbout();
-            ob_FrmAbout.Show();
-        }
+     
 
         private void tlsNotepad_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -271,9 +265,9 @@ namespace Notepad
                 case 4:
                     粘贴PToolStripButton_Click(sender, e);
                     break;
-                case 5:
-                    tsmiAbout_Click(sender, e);
-                    break;
+                //case 5:
+                //    tsmiAbout_Click(sender, e);
+                //    break;
 
             }
         }
@@ -326,6 +320,53 @@ namespace Notepad
         private void tssLb12_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void 本地ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (sdlgNotepad.ShowDialog() == DialogResult.OK)
+            {
+                rtxtNotepad.SaveFile(sdlgNotepad.FileName);
+                s = true;
+            }
+        }
+
+        private void 数据库ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+            string mysq1 = "Data Source=小腾7plus\\test;Initial Catalog=NoteBook;Persist Security Info=True;User ID=sa;Password=521314";
+            SqlConnection con = new SqlConnection();
+            SqlCommand sqlcommand = new SqlCommand();
+            string sqladd = "insert into Note values(";
+            sqladd += "'" +Interaction .InputBox ("请输入笔记名","笔记名","",100,100);
+            sqladd += "','" +Interaction .InputBox ("请输入笔记分类","笔记分类","",100,100);
+            sqladd += "','"+rtxtNotepad.Text;
+            sqladd += "','" + Program.user.Username;
+            sqladd += "','" + System.DateTime.Now.ToString()+"')";
+            try
+            {
+                con.ConnectionString = mysq1;
+                con.Open();
+                sqlcommand.CommandText = sqladd;
+                sqlcommand.Connection = con;
+                sqlcommand.CommandType = CommandType.Text;
+                sqlcommand.CommandTimeout = 30;
+                //执行insert语句
+                int n = sqlcommand.ExecuteNonQuery();
+                if (n > 0)
+                {
+                    MessageBox.Show("成功保存笔记到数据库！");
+                }
+            }
+            catch (Exception ex)
+            { MessageBox.Show(ex.Message); }
+            finally { if (con != null) con.Close(); sqlcommand.Dispose(); }
+            this.Close();
+        }
+
+        private void Note_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
